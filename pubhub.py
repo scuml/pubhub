@@ -1,12 +1,15 @@
 import redis
-REDIS_HOST = 'localhost'
-REDIS_PORT = '6379'
-REDIS_DB = 15
+from settings import REDIS_HOST, REDIS_PORT, REDIS_DB
 
 
 class PubHub(object):
 
-    """A very simple way to push data out to a websocket client."""
+    """
+    A very simple way to push data out to a websocket client.
+    A pubhub instance is created with a link to a specific channel.null=
+    This channel can be published and subscribed to.
+    All data is temporary and will eventually expire.
+    """
     def __init__(self, channel=''):
         super(PubHub, self).__init__()
 
